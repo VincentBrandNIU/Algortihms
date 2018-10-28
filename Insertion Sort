@@ -1,0 +1,32 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+void insertionSort(vector<int> &arr){
+	int key, j;
+	for(int i = 1; i < arr.size(); i++){
+		key = arr[i];
+		j = i - 1;
+		while (j >= 0 && arr[j] > key){
+			arr[j+1] = arr[j];
+			j = j - 1;
+		}
+		arr[j+1] = key;
+	}
+}
+
+int main(){
+	vector<int> a; 
+	vector<int> b;
+	for(int i = 0; i < 100; i++){
+		a.push_back(100 - i);
+	}
+	insertionSort(a);
+	for(unsigned x = 0; x < a.size(); x++){
+    	cout << a[x] << ", ";
+	}
+	
+
+	return 0;
+}
